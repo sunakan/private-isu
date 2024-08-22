@@ -88,12 +88,14 @@
         path: /lib/systemd/system/php8.3-fpm.service
         line: 'EnvironmentFile=/home/isucon/env.sh'
         insertafter: 'ExecReload=.*'
+      tags: php8
     - name: php app (systemd)
       when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "22.04"
       lineinfile:
         path: /lib/systemd/system/php8.1-fpm.service
         line: 'EnvironmentFile=/home/isucon/env.sh'
         insertafter: 'ExecReload=.*'
+      tags: php8
     - name: reload daemon config
       shell: systemctl daemon-reload
     - name: default application selection
